@@ -2,7 +2,7 @@
   "name": "ls_app_ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hk-webapp.github.io/LSView/",
+  "homepage": "https://hk-webapp.github.io/LSProject/",
   "dependencies": {
     "@types/jquery": "^3.3.30",
     "@types/react-redux": "^7.1.1",
