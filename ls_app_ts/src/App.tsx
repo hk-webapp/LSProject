@@ -31,7 +31,7 @@ class App extends React.Component {
     document.title = "Learning Programming Site";
 
     return (
-      <Router>
+      <Router basename="/ReactSampleDemo">
 
         <div className="App">
           <header className="App-header">
