@@ -2,7 +2,7 @@
   "name": "ls_app_ts",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://hk-webapp.github.io/LSProject/",
+  "homepage": "https://hk-webapp.github.io/ReactSampleDemo/",
   "dependencies": {
     "@types/jquery": "^3.3.30",
     "@types/react-redux": "^7.1.1",
@@ -27,8 +27,7 @@
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b master -d build"
+    "predeploy": "npm run build"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
