@@ -1,59 +1,54 @@
-import "bootstrap/scss/bootstrap.scss"
-import * as $ from 'jquery'
+import "bootstrap/scss/bootstrap.scss";
 import * as React from 'react';
-import { Link } from 'react-router-dom'
+import { Nav, Navbar } from 'react-bootstrap'
+import { NavLink } from 'react-router-dom'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.scss';
+
 import OfflineComponent from './components/OfflineComponent'
-import TimeComponent from './components/TimeComponent'
 import AppRouter from './routers/router'
+
 class App extends React.Component {
-  private menuDropdownRef: any;
-  private menuIsOpen: boolean = false;
   constructor(props: any) {
     super(props);
-    this.menuOnClick = this.menuOnClick.bind(this);
-    this.menuDropdownRef = React.createRef();
   }
 
-  public menuOnClick() {
-    if (!this.menuIsOpen) {
-      $(this.menuDropdownRef.current).show();
-      this.menuIsOpen = true;
-    }
-    else {
-      $(this.menuDropdownRef.current).hide();
-      this.menuIsOpen = false;
-    }
+  // public CheckHomeIsActive(match: match<any>, location: Location) {
+  //   if (!location) { return false; }
+  //   if (location.pathname === "/" || location.pathname === "/Home") { return true; }
+  //   return false;
+  // }
+
+  public CheckHomeIsActive = (match: any, location: { pathname: string; }) => {
+
+    if (!location) { return false; }
+    if (location.pathname === "/" || location.pathname === "/Home") { return true; }
+    return false;
   }
 
   public render() {
     document.title = "Learning Programming Site";
 
     return (
-      <Router basename="/ReactSampleDemo">
+      <Router basename={process.env.PUBLIC_URL}>
 
         <div className="App">
           <header className="App-header">
-            <h1 className="App-title">آموزش برنامه نویسی</h1>
-            <div className="title">
-              <div className="app-time">
-                <TimeComponent />
-              </div>
+            <div className="app-menubar ">
+              <Navbar className="navbar navbar-inverse " expand="md" bg="drak" variant="dark">
+                <Navbar.Toggle aria-controls="myNavbar" />
+                <Navbar.Collapse className="app-navbar-right" id="myNavbar">
+                  <Nav className="">
+                    <Nav.Item ><NavLink to="/Home" isActive={this.CheckHomeIsActive} activeClassName="active-page" className="nav-link ">صفحه اصلی</NavLink></Nav.Item>
+                    <Nav.Item ><NavLink to="/AboutUs" activeClassName="active-page" className="nav-link">درباره ما</NavLink></Nav.Item>
+                    <Nav.Item ><NavLink to="/ContactUs" activeClassName="active-page" className="nav-link">تماس با ما</NavLink></Nav.Item>
+
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
             </div>
           </header>
-          <div className="app-menubar ">
-            <div className="menu-icon " onClick={this.menuOnClick}>.</div>
-            <div className="row" ref={this.menuDropdownRef}>
-              <div className="col-2">
-                <Link to="/" >Home</Link>
-              </div>
-              <div className="col-2">
-                <Link to="/ContactUs" >Contact us</Link></div>
-              <div className="col-2">
-                <Link to="/AboutUs" >About us</Link></div>
-            </div>
-          </div>
+
           <div className="pages-container">
             {
               AppRouter.map((rt, index: number) => {
@@ -64,7 +59,14 @@ class App extends React.Component {
             }
           </div>
           <OfflineComponent />
-          <div className="App-footer">@Copy right</div>
+          <div className="App-footer">
+
+            <div className="copy-right">
+              تمامی حقوق برای ...... محفوظ است.
+            <br />
+              version 1.1
+            </div>
+          </div>
         </div>
       </Router>
 

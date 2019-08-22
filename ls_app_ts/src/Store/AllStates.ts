@@ -8,6 +8,7 @@ export interface IAppMainState{
     isOffline:boolean;
 }
 export interface IIntroPagesState extends IState{
+    courses:PageIntroInfo[] ,
     items:PageIntroInfo[] ,
     error:string,
     loaded:boolean

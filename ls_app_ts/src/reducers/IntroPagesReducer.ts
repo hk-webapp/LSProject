@@ -1,9 +1,10 @@
 import { IntroPagesActionTypes } from 'src/actions/actionTypes';
 import { IIntroPagesState } from 'src/Store/AllStates';
-import { FETCH_INTROPAGES_FAIL, FETCH_INTROPAGES_SUCCESS } from '../actions/actionConstant';
+import { FETCH_COURSES_SUCCESS, FETCH_INTROPAGES_FAIL, FETCH_INTROPAGES_SUCCESS } from '../actions/actionConstant';
 
 
 const initState: IIntroPagesState = {
+    courses: [],
     error: "",
     items: [],
     loaded: false,
@@ -16,6 +17,14 @@ export default function IntroPagesRoducer(state = initState, action: IntroPagesA
                 ...state,
                 error: "",
                 items: action.items,
+                loaded: action.loaded,
+            }
+
+        case FETCH_COURSES_SUCCESS:
+            return {
+                ...state,
+                courses: action.courses,
+                error: "",
                 loaded: action.loaded,
             }
         case FETCH_INTROPAGES_FAIL:
@@ -32,5 +41,6 @@ export default function IntroPagesRoducer(state = initState, action: IntroPagesA
 }
 
 export const getIntroPages = (state: IIntroPagesState) => state.items;
+export const getCourses = (state: IIntroPagesState) => state.courses;
 export const getError = (state: IIntroPagesState) => state.error;
 export const getLoaded = (state: IIntroPagesState) => state.loaded;

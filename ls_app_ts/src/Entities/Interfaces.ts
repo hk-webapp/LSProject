@@ -14,5 +14,5 @@ interface IPageViewMatchParams {
     Name: string;
 }
 export interface IPageViewProps extends RouteComponentProps<IPageViewMatchParams> {
-
+    courses: PageIntroInfo[];
 }

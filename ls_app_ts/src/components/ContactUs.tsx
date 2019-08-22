@@ -5,6 +5,8 @@ import { ChangeDescAction, ChangeEmailAction, ChangeNameAction } from 'src/actio
 import { getDesc, getEmail, getName } from 'src/reducers/ContacUsReducer';
 import { IContacUsState } from 'src/Store/AllStates';
 import { IAppState } from 'src/Store/store';
+import '../styles/ContactUs.scss'
+
 
 interface IContacUsProps {
     Name: string,
@@ -51,31 +53,54 @@ class ContactUs extends React.Component<IContacUsProps, IContacUsState> {
     public render() {
         document.title = "Countact us";
 
-        return (<div className="contact-us-form" ><div className="desc-top">لطفا از طریق فرم زیر نظرات و پیشنهادات خود را برای ما ارسال نمایید</div>
-            <div className="form-group">
-                <label>نام و نام خانوادگی
+        return (
+            <div className="contactus-container ">
+                <div className="contactus-view">
+                    <div className="view-col">
+                        <img alt="contact us img" src={process.env.PUBLIC_URL + "/Images/contact.gif"} className="contact_us_img" />
+                        <h4>بخش آموزش</h4>
+                        <p>
+                            ایران، تهران، ........
+                        </p>
+                        <p>
+                            تلفن : 021 - 00000000
+                        </p>
+                        <p>
+                            WebSite : www.........com
+                        </p>
+                    </div>
+                    <div className="view-col">
+                        <div className="contact-info">
+                            <div className="desc-top">لطفا از طریق فرم زیر نظرات و پیشنهادات خود را برای ما ارسال نمایید</div>
+                            <div className="form-group">
+                                <label>نام و نام خانوادگی
 
                 <input className="form-control" onChange={this.changeHanhleing}
-                        onBlur={this.blurHandlingForName} type="text" placeholder="نام و نام خانوادگی را وارد نمایید." />
-                </label>
-            </div>
-            <div className="form-group">
-                <label>ایمیل
+                                        onBlur={this.blurHandlingForName} type="text" placeholder="نام و نام خانوادگی را وارد نمایید." />
+                                </label>
+                            </div>
+                            <div className="form-group">
+                                <label>ایمیل
                 <input className="form-control" type="email" onBlur={this.blurHandlingForEmail}
-                        onChange={this.changeHanhleing} placeholder="ایمیل خود را وارد نمایید" />
+                                        onChange={this.changeHanhleing} placeholder="ایمیل خود را وارد نمایید" />
 
-                </label>
-            </div>
-            <div className="form-group">
-                <label>توضیحات
+                                </label>
+                            </div>
+                            <div className="form-group">
+                                <label>توضیحات
                 <textarea className="form-control" rows={5} onBlur={this.blurHandlingForDesc}
-                        placeholder="توضیحات خود را وارد نمایید" />
+                                        placeholder="توضیحات خود را وارد نمایید" />
 
-                </label>
-            </div>
-            <div className="form-group">
-                <input type="button" id="sendBtn" value="ارسال" onClick={this.Send} />   </div>
-        </div>)
+                                </label>
+                            </div>
+                            <div className="form-group">
+                                <input type="button" id="sendBtn" value="ارسال" onClick={this.Send} />   </div>                    </div>
+
+                    </div>
+
+                </div>
+
+            </div>)
     }
 }
 const mapStateToProps = (state: IAppState) => {

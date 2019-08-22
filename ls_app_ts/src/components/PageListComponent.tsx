@@ -3,8 +3,6 @@ import * as React from 'react';
 import { NavLink } from 'react-router-dom'
 
 import { connect } from 'react-redux';
-// import { bindActionCreators } from 'redux';
-// import { FetchIntroPagesByApi } from 'src/actions/IntroPagesAction';
 import PageIntroInfo from 'src/Entities/PageIntroInfo';
 import { getError, getIntroPages, getLoaded } from 'src/reducers/IntroPagesReducer';
 import { IIntroPagesState } from 'src/Store/AllStates';
@@ -15,7 +13,6 @@ interface IProps {
   error: string,
   items: PageIntroInfo[],
   loaded: boolean,
-  // loadData: () => void,
 }
 
 class PageListComponent extends React.Component<IProps, IIntroPagesState> {
@@ -25,9 +22,9 @@ class PageListComponent extends React.Component<IProps, IIntroPagesState> {
 
   public render() {
     return (
-      <div className="row page-container">
+      <div className="ls-row page-container">
         {this.props.items.map((info, index) => {
-          return <div key={index} className="col-sm-4">
+          return <div key={index} className="ls-col-4">
             <div className="page-item">
               <div className={info.IsNew !== true ? "new-badge-hidden" : "new-badge"} ><span className="rotate-span">جدید</span></div>
               <div className="page-item-header">
@@ -49,11 +46,7 @@ class PageListComponent extends React.Component<IProps, IIntroPagesState> {
     );
   }
 }
-/*
-const mapDispatchToProps = (dispatch: any) => bindActionCreators({
-  loadData: FetchIntroPagesByApi
-}, dispatch);
-*/
+
 const mapStateToProps = (state: IAppState) => (
   {
     error: getError(state.introPageState),

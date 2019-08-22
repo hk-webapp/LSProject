@@ -1,33 +1,40 @@
 import AboutUs from '../components/AboutUs'
 import ContactUs from '../components/ContactUs'
- import Pages from '../components/Pages'
- // import PageListComponent from '../components/PageListComponent'
- import PageViewer from '../components/PageViewer'
+import Home from '../components/Home'
+// import PageListComponent from '../components/PageListComponent'
+import PageViewer from '../components/PageViewer'
 
- const AppRouter = [
+const AppRouter = [
     {
         path: "/",
         // tslint:disable-next-line: object-literal-sort-keys
-        component: Pages,
-        exact:true,
-        Title:"Learning Programming Site"
+        component: Home,
+        exact: true,
+        Title: "Learning Programming Site"
     },
     {
-        path:"/ContactUs",
+        path: "/Home",
         // tslint:disable-next-line: object-literal-sort-keys
-        component:ContactUs,
+        component: Home,
+        exact: true,
+        Title: "Learning Programming Site"
     },
     {
-        path:"/AboutUs",
+        path: "/ContactUs",
         // tslint:disable-next-line: object-literal-sort-keys
-        component:AboutUs,
-        Title:"About Learning Site"
+        component: ContactUs,
+    },
+    {
+        path: "/AboutUs",
+        // tslint:disable-next-line: object-literal-sort-keys
+        component: AboutUs,
+        Title: "About Learning Site"
 
     },
     {
-        path:"/Page/:Name",
+        path: "/Page/:Name",
         // tslint:disable-next-line: object-literal-sort-keys
-        component:PageViewer
+        component: PageViewer
     }
 ]
 

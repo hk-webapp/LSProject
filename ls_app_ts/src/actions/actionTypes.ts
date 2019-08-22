@@ -1,8 +1,10 @@
 import PageIntroInfo from 'src/Entities/PageIntroInfo';
-import { CONTACT_US_CHANGE_DESC, CONTACT_US_CHANGE_EMAIL, CONTACT_US_CHANGE_NAME, 
-    FETCH_INTROPAGES_FAIL, FETCH_INTROPAGES_SUCCESS,
-     SITE_IS_OFFLINE, SITE_IS_ONLINE } 
-     from './actionConstant';
+import {
+    CONTACT_US_CHANGE_DESC, CONTACT_US_CHANGE_EMAIL, CONTACT_US_CHANGE_NAME,
+    FETCH_COURSES_SUCCESS, FETCH_INTROPAGES_FAIL,
+    FETCH_INTROPAGES_SUCCESS, SITE_IS_OFFLINE, SITE_IS_ONLINE
+}
+    from './actionConstant';
 
 export interface ILoadSuccessIntroPagesAction {
     type: typeof FETCH_INTROPAGES_SUCCESS,
@@ -16,7 +18,13 @@ export interface ILoadFailIntroPagesAction {
     error: string
 }
 
-export type IntroPagesActionTypes = ILoadSuccessIntroPagesAction | ILoadFailIntroPagesAction;
+export interface ILoadSuccesCoursesAction {
+    type: typeof FETCH_COURSES_SUCCESS,
+    courses: PageIntroInfo[],
+    loaded: boolean,
+}
+
+export type IntroPagesActionTypes = ILoadSuccessIntroPagesAction | ILoadFailIntroPagesAction | ILoadSuccesCoursesAction;
 
 export interface IAppIsOfflineAction {
     type: typeof SITE_IS_OFFLINE,

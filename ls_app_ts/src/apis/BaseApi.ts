@@ -8,19 +8,19 @@ export default class BaseApi {
         baseURL: ""
     });
 
-    public get(url: string, data: any) {
-        this.axiosObj.get(url)
+    public get(url: string, data: any = {}) {
+        return this.axiosObj.get(url)
             .then((response: any) => {
-                resolve(response);
+                return response;
             })
             .catch(error => {
-                reject(error);
+                return error;
             });
     }
 
     public post(url: string, config: any) {
 
-        this.axiosObj.post(url,config)
+        this.axiosObj.post(url, config)
             .then((response: any) => {
                 resolve(response);
             })

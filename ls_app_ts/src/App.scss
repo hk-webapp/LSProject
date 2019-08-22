@@ -1,130 +1,135 @@
+@import "styles/variables.scss";
+
+body {
+  direction: $dir;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: black !important;
+  color: $fontColor3 !important;
+}
+
+div {
+  background-color: transparent;
+}
+p {
+  line-height: 25px;
+}
 
 .App {
-    text-align: center;
-    height: 95%;
-    overflow: hidden;
+  height: 95%;
+  overflow: hidden;
+  height: max-content;
 }
 
 .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-    height: 80px;
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
 }
 
 .App-header {
-    background-color: rgb(155, 190, 236);
-    height: 73px;
-    width: 100%;
-    padding: 20px;
-    color: rgb(7, 6, 6);
-    background-image: url("small_logo_tr.png");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
+  width: 100%;
+  height: $headerHeight;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: $menuBkColor;
+  border-bottom: 1px dashed white;
+  direction: $dir;
 }
 
 .App-footer {
-    border-top: 1px gray solid;
-    height: 100%;
-    max-height: 80px;
-    margin-top: 2px;
-    background-color: rgb(139, 138, 135)
-}
+  border-top: 1px gray dashed;
+  height: $footerHeight;
+  margin-top: 2px;
+  position: relative;
+  // background-color: rgb(139, 138, 135);
 
-.App-title {
-    font-size: 2.0em;
-    text-align: center;
-    font-weight: 600;
-}
-
-.app-menubar {
-    margin-top: 5px;
-    background-color: brown
-}
-
-.app-menubar .menu-icon {
-    display: none;
-    text-align: left;
-    margin: 10px;
-    padding: 2px;
-    width: 35px;
-    border: 3px gray solid;
-    background-color: transparent;
-    background-image: url("menu.png");
-    background-repeat: no-repeat;
-}
-
-.App .App-Is-Offline{
-    display: block;
-    background-color: red;
-    position: fixed;
-    bottom: 10px;
-    height: 35px;
+  .copy-right {
     width: 100%;
-    z-index: 1000;
-    padding: 5px;
+    position: absolute;
+    bottom: 0px;
+    text-align: center;
+  }
 }
 
-.App .App-Is-Online{
-    display: none;
-
+.App-title1 {
+  font-size: 2em;
+  text-align: center;
+  font-weight: 600;
 }
 
-@media only screen and (min-width:450px) {
-    .App-header {
-        background-image: url("logo_tr.png");
-        height: 250px;
-    }
-    .App-title {
-        font-size: 3.5em;
-        padding-top: 40px
-    }
+.app-navbar-right1 .nav-item{
+  float: right;
+}
+.app-menubar {
+  direction: rtl;
+  .active-page {
+    color: white;
+    border-bottom: 1px solid white;
+    // border-radius: 25px;
+  }
 }
 
-.App-intro {
-    font-size: large;
+.App .App-Is-Offline {
+  display: block;
+  background-color: red;
+  position: fixed;
+  bottom: 10px;
+  height: 35px;
+  width: 100%;
+  z-index: 1000;
+  padding: 5px;
+}
+
+.App .App-Is-Online {
+  display: none;
+}
+/*
+@media only screen and (min-width: 450px) {
+  .App-header {
+    background-image: url("logo_tr.png");
+    height: 250px;
+  }
+  .App-title {
+    font-size: 3.5em;
+    padding-top: 40px;
+  }
+}
+*/
+.App-intro1 {
+  font-size: 18px;
 }
 
 @keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .pages-container {
-    height: calc( 100vh - 135px );
-    width: 100%;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-    padding-top: 5px;
-    overflow-x: hidden;
+  // background-color: $mainBackgroundColor;
+  height: max-content;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
 }
 
-.page-viewer-container {
-    height: 90%;
-    width: 100%;
+.home-container {
+  justify-content: center;
+  height: max-content;
+  width: 100%;
 }
 
 .time-container {
-    float: right;
-    padding-right: 25px;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  float: right;
+  padding-right: 25px;
 }
 
 .app-time {
-    float: right;
-    width: 100%;
-}
-
-.contact-us-form{
-    width: 400px;
-    direction: rtl;
-    label{
-        text-align: right;
-    }
-   .desc-top{
-        margin: 10px;
-    }
+  float: right;
+  width: 100%;
 }
